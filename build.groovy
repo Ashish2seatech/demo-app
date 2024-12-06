@@ -24,14 +24,14 @@ pipeline {
             steps {
                 script {
                     
-                    sh 'docker push $DOCKER_IMAGE'
+                    sh 'sudo docker push $DOCKER_IMAGE'
                 }
             }
         }
         stage('Deploy Docker Container') {
             steps {
                 script {
-                    sh 'docker run -d --name demo-app -p 3000:3000 --replicas 2 $DOCKER_IMAGE'
+                    sh 'sudo docker run -d --name demo-app -p 3000:3000 --replicas 2 $DOCKER_IMAGE'
                 }
             }
         }
